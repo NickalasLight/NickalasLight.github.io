@@ -10,7 +10,7 @@ root.render(
     <App />
   </React.StrictMode>
 );
-
+//Figma, search for portfolios, seems like a great option to learn--> code by wire, seems like its good for prototyping
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
