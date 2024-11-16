@@ -17,6 +17,7 @@ const App = () => {
           <Sidebar />
           <div className="content">
             <Routes>
+              <Route path="/" element={<About/>} />
               <Route path="/about" element={<About />} />
               <Route path="/books" element={<Books />} />
               <Route path="/blog" element={<Blog />} />
