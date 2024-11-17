@@ -1,21 +1,26 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import VitePluginRadar from 'vite-plugin-radar'
+
+import react from '@vitejs/plugin-react';
+import VitePluginRadar from 'vite-plugin-radar';
+import * as dotenv from 'dotenv';
+import {defineConfig,loadEnv} from "vite";
+
 
 // https://vite.dev/config/
-export default defineConfig({
-  plugins: [react(),
+export default defineConfig(({ mode }) => {
+  // Use './' as the root directory for environment variables
+  const env = loadEnv(mode, "./", "");
 
-
-
-    VitePluginRadar({
-      analytics: {
-        id: 'G-1M1GVGYGH9', // Replace with your GA4 Measurement ID
-      },
-    }),
-
-
-
-
-  ],
-})
+  return {
+    plugins: [
+      react(),
+      VitePluginRadar({
+        analytics: {
+          id: env.VITE_GA4_ID || "", // Use the GA4 ID from the .env file
+        },
+      }),
+    ],
+    define: {
+      GA_MEASUREMENT_ID: JSON.stringify(env.VITE_GA4_ID || ""),
+    },
+  };
+});
