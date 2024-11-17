@@ -24,5 +24,6 @@ dist-ssr
 *.sw?
 
 # Local environment files
+*.env
 .env
 .env.* # Ignores all .env variants (e.g., .env.development, .env.production)
