@@ -15,12 +15,12 @@ export default defineConfig(({ mode }) => {
       react(),
       VitePluginRadar({
         analytics: {
-          id: env.VITE_GA4_ID || "", // Use the GA4 ID from the .env file
+          id: env.VITE_GA4_ID, // Use the GA4 ID from the .env file
         },
       }),
     ],
     define: {
-      GA_MEASUREMENT_ID: JSON.stringify(env.VITE_GA4_ID || ""),
+      GA_MEASUREMENT_ID: JSON.stringify(env.VITE_GA4_ID),
     },
   };
 });
